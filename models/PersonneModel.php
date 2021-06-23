@@ -30,6 +30,14 @@ class Personne extends AccesBDDModel {
         return $personne;
     }
 
+    public function readPersonnebylogin($login){
+
+        $sql = 'SELECT * FROM `personne` WHERE Login = ?';
+        $personne = $this->executerparam($sql, array($login));
+
+        return $personne;
+    }
+
     public function adminupdatePersonne($id_personne, $mdp, $role, $nom, $prenom, $login){
 
         $sql = 'UPDATE personne SET Mot_de_Passe = ?, Role = ?, Nom = ?, Prenom = ?, Login = ? WHERE ID_CLient = ?';

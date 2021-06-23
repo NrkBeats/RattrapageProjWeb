@@ -7,15 +7,21 @@
     <title>Document</title>
 </head>
 <body>
-<p>
-    <label for="courriel">Courriel</label>
-    <input type="text" id="courriel" name="courriel" value="courriel@exemple.com" />
-    </p>
 </body>
 </html>
 
 
 
 <?php 
-    print_r($tabproduits[0][0]);
+    $i = 0;
+    while ($i < count($tabproduits)){
+
+        echo "<tbody><tr>";
+        echo "<td>".$tabproduits[$i][0]."</td>";
+        echo "<td>".$tabproduits[$i][1]."</td>";
+        echo "<td>".$tabproduits[$i][2]."</td>";
+        echo "<td>".$tabproduits[$i][3]."</td>";
+        echo "<td>".$tabproduits[$i][4]."</td>";
+        echo "</tr></tbody>";
+        $i++;}
 ?>
