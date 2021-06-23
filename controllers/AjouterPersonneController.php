@@ -21,9 +21,6 @@
 
         echo "bienvenue";
     }
-
-
-
 ?>
 
 
