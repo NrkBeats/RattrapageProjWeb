@@ -29,36 +29,33 @@
                             <th>- Login -</th>
                         </tr>
                     </thead>
-                    <?php 
-                    
-                    
-
-                            
-
-                            $i = 0;
-                            while ($i < count($tabpersonne)){
+                    <?php
+                        $i = 0;
+                            while ($i < count($tabpersonneid)){
 
                                 echo "<tbody><tr>";
-                                echo "<td>".$tabpersonne[$i][0]."</td>";
-                                echo "<td>".$tabpersonne[$i][1]."</td>";
-                                echo "<td>".$tabpersonne[$i][2]."</td>";
-                                echo "<td>".$tabpersonne[$i][3]."</td>";
-                                echo "<td>".$tabpersonne[$i][4]."</td>";
-                                echo "<td>".$tabpersonne[$i][5]."</td>";
+                                echo "<td>".$tabpersonneid[$i][0]."</td>";
+                                echo "<td>".$tabpersonneid[$i][1]."</td>";
+                                echo "<td>".$tabpersonneid[$i][2]."</td>";
+                                echo "<td>".$tabpersonneid[$i][3]."</td>";
+                                echo "<td>".$tabpersonneid[$i][4]."</td>";*
+                                echo "<td>".$tabpersonneid[$i][5]."</td>";
                                 echo "</tr></tbody>";
                                 $i++;
                             }                           
                 ?>
                 </table> </div>
                 <div>
-                <h1>Inscription</h1>
+                <h1>modifier le compte</h1>
                       <div class="erreur"></div>
                            <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierProfil">
                               <div class="form-row">
                              <div class="col-md-2 mb-3">
-                              <label for="Id_personne_form">Id de la personne à modifier ou supprimer</label>
-                              <input type="text" class="form-control" name="Id_personne_form" id="Id_personne_form" placeholder="ID" >
-                              <button type="submit" class="btn btn-primary">modifier</button>
+                             <?php if($_SESSION['role']==1){print_r('<label for="Id_personne_form">Id de la personne à modifier ou supprimer</label>'); 
+                                print_r('<input type="text" class="form-control" name="Id_personne_form" id="Id_personne_form" placeholder="ID" >'); } ?>
+                              
+                              
+                              <button type="submit" name="modifier" class="btn btn-primary">modifier</button>
                                 <p style="color : red;" id="erreur"></p>
             </div>
                 
