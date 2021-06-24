@@ -1,4 +1,5 @@
 <?php
+    require_once './models/AccesBDDModel.php';
     session_start();
     $url = '';
 
@@ -9,17 +10,16 @@
 
         if($url[0] == 'accueil'){
             
-            require_once './models/AccesBDDModel.php';
+
             require_once './models/AccueilModel.php';
             require './controllers/AccueilController.php';
             require_once './View/AccueilView.php';
 
         }
 
-        if($url[0] == 'Connexion'){
+        elseif($url[0] == 'Connexion'){
 
             if (!isset($_SESSION['login'])){
-
 
                 require_once './View/ConexionView.php';
                 require_once './models/PersonneModel.php';
@@ -29,15 +29,33 @@
             
             else {
 
-                require_once './View/DeconnexionView.php';
+                require './View/DeconnexionView.php';
             }
         }
 
-        if($url[0] == 'deconnexion'){
+        elseif($url[0] == 'deconnexion'){
             
-            require_once './controllers/DeconnexionController.php';
+            require './controllers/DeconnexionController.php';
         
         }
+
+        elseif($url[0] == 'Dashboard'){
+
+
+            require_once './models/PersonneModel.php';
+            require './controllers/AdmindashboardController.php';
+            require './View/AdminPannelView.php';    
+        }
+
+        elseif($url[0] == 'ModifierProfil'){
+
+            require_once './models/PersonneModel.php';
+            require './controllers/ModifierpersonneController.php';
+            require './View/ModifPersonneView.php';
+
+        }
+
+        
     }
 
     else{
