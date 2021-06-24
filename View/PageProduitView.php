@@ -26,7 +26,32 @@
         echo "<td>--".$tabproduits[0][3]."--</td>";  
         echo "<td>--".$tabproduits[0][4]."--</td>";
         echo "</tr></tbody>";
+
         ?>
-    
+
+        </table></div>
+
+
+        <h2>Section Commentaires</h2>
+        
+        <div><table id="Commentaires" class="table table-bordered">
+        <?php
+
+
+        $i = 0;
+        while ($i < count($commentaire)){
+
+            echo "<tbody><tr>";
+            echo "<td>".$commentaire[$i][1]."</td>";
+            echo "</tr></tbody>";
+            $i++;
+        }  
+
+        ?>
+
+        </table></div>
+
+
+
 </body>
 </html>
