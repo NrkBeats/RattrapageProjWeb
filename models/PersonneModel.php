@@ -1,8 +1,4 @@
 <?php
-//Récupération de la classe abstraite permettant la connexion
-
-require_once 'AccesBDDModel.php';
-
 
 class Personne extends AccesBDDModel {
 

@@ -53,7 +53,7 @@
                 <div>
                 <h1>Inscription</h1>
                       <div class="erreur"></div>
-                           <form id="AnnonceForm" name="fo" method="post" action="../controllers/ModifierpersonneController.php">
+                           <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierProfil">
                               <div class="form-row">
                              <div class="col-md-2 mb-3">
                               <label for="Id_personne_form">Id de la personne à modifier ou supprimer</label>

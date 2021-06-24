@@ -1,7 +1,4 @@
 <?php
-    require_once '../View/ConexionView.php';
-    require_once '../models/PersonneModel.php';
-
     if (isset($_POST['username'])){
 
         $login = $_POST['username'];
@@ -11,15 +8,15 @@
         $loginpersonne = $personne->readPersonnebylogin($login)->fetchAll();
 
         if ($loginpersonne!= NULL){
-
-            print_r("premier if reussi");
-
             if ($password == $loginpersonne[0][1]){
                 
                 print_r("deuxième if reussi");
+                $_SESSION['login'] = $login;
+                $_SESSION['role'] = $loginpersonne[0][2];
+
+                header('Location: http://rattrapagegit/?url=accueil');
+
             }
-
-
         }
 
 

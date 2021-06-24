@@ -5,7 +5,7 @@
 
     
 
-    if (isset($_POST["nom"])){
+    if (isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["login"]) && isset($_POST["pass"]) ){
 
         $nom = $_POST["nom"];
         $prenom = $_POST["prenom"];

@@ -15,7 +15,7 @@
 
 <h1>Modification de compte</h1>
       <div class="erreur"></div>
-      <form id="AnnonceForm" name="fo" method="post" action="../controllers/Modifierpersonne2Controller.php">
+      <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierProfil">
          <div class="form-row">
             <div class="col-md-2 mb-3">
 
@@ -43,7 +43,7 @@
             </div>
          <button type="submit" name='SubmitButton' class="btn btn-primary">Valider avec validation</button>
          </form>
-         <form method="post" action="Modifierpersonne2Controller.php">
+         <form method="post" action="http://rattrapagegit/?url=ModifierProfil">
  
         <span id="Suprimer"><button type="submit" name="delete" value="delete" id="delete" class="btn btn-danger">Suprimer</button></span>
 

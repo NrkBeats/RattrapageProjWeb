@@ -24,4 +24,9 @@
         echo "<td>".$tabproduits[$i][4]."</td>";
         echo "</tr></tbody>";
         $i++;}
+
+        if (isset($_SESSION['login'])){
+
+            echo $_SESSION['login'];
+        }
 ?>

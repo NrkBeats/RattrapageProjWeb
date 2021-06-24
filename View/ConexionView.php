@@ -10,7 +10,7 @@
 
 	            <!-- zone de connexion -->
 	            
-	            <form action="../controllers/ConnexionController.php" method="POST">
+	            <form action="http://rattrapagegit/?url=Connexion" method="POST">
 	                <h1>Connexion</h1>
 	                
 	                <label><b>Login</b></label>
