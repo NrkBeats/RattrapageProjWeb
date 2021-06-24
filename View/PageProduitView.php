@@ -20,6 +20,8 @@
         </tr>
 
         <?php       
+
+        // affichage des éléments qui composent le produit
         echo "<tbody><tr>";
         echo "<td> -- ".$tabproduits[0][1]."-- </td>";
         echo "<td>--".$tabproduits[0][2]."--</td>";
@@ -38,6 +40,8 @@
         <?php
 
 
+    // affichage de tous les commentaires en liens avec le produit
+
         $i = 0;
         while ($i < count($commentaire)){
 
@@ -50,6 +54,23 @@
         ?>
 
         </table></div>
+
+    </div>
+    <div>
+
+
+<form id="AjoutCommentaire" name="fo" method="post" action="http://rattrapagegit/?produit=<?php echo $tabproduits[0][0]; ?>">
+   <div class="form-row">
+
+
+         <input type="text" class="form-control" name="com" id="com" placeholder="Ajoute ton commentaire ici" >
+      </div>
+
+
+   <button type="submit" class="btn btn-primary">Commenter</button>
+   <p style="color : red;" id="erreur"></p>        
+
+   </div>
 
 
 

@@ -71,6 +71,8 @@
 
     elseif(isset($_GET['produit'])){
 
+
+        require './View/NavBarUtilisateursView.php';
         require './models/ProduitsModel.php';
         require './models/CommentaireModel.php';
         require './controllers/PageProduitController.php';

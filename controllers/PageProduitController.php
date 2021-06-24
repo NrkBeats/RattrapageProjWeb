@@ -22,6 +22,19 @@ if(isset($_SESSION['login'])){
         header('Location: http://rattrapagegit/Erreur');        
     }
 
+    //Si un commentaire à été ajouté sur la vue on fait le lien avec la BDD
+
+    elseif (isset($_POST['com'])){
+
+        $description = $_POST['com'];
+        $id = $_SESSION['ID'];
+
+        $recupcom = new Commentaire;
+        $com = $recupcom->insertcom($description,$id,$idproduit);
+        echo $idproduit;
+        header("Location: http://rattrapagegit/?produit=".$tabproduits[0][0]."'");
+    }
+    
 
 }
 //si l'utiliateur est déconnecté renvoi vers connexion
