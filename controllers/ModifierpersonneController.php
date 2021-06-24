@@ -1,6 +1,8 @@
 <?php 
 
-    if (isset($_POST["Id_personne_form"])) {
+
+
+    if ($_SESSION['role'] == 1) {
 
         $id_personne = $_POST["Id_personne_form"];
     }
@@ -31,7 +33,13 @@
     elseif(isset($_POST["delete"])){
 
         $personne = new Personne;
+        if(!isset($id_personne)){
+
+            $id_personne= $_SESSION["ID_Utilisateur_modif"];
+        }
+
         $tabpersonne = $personne->DeletePersonne($id_personne);
+        header('Location: http://rattrapagegit/?url=Dashboard');
     }
 
 

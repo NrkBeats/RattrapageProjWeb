@@ -38,7 +38,7 @@
                                 echo "<td>".$tabpersonneid[$i][1]."</td>";
                                 echo "<td>".$tabpersonneid[$i][2]."</td>";
                                 echo "<td>".$tabpersonneid[$i][3]."</td>";
-                                echo "<td>".$tabpersonneid[$i][4]."</td>";*
+                                echo "<td>".$tabpersonneid[$i][4]."</td>";
                                 echo "<td>".$tabpersonneid[$i][5]."</td>";
                                 echo "</tr></tbody>";
                                 $i++;
@@ -56,12 +56,10 @@
                               
                               
                               <button type="submit" name="modifier" class="btn btn-primary">modifier</button>
-                                <p style="color : red;" id="erreur"></p>
+
             </div>
-                
-                
-                
-                </div>
+            </div>
+                           </form>
 
                 
 

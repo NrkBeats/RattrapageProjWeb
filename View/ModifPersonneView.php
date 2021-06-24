@@ -54,8 +54,7 @@
          <button type="submit" name='SubmitButton' class="btn btn-primary">Valider avec validation</button>
          </form>
          <form method="post" action="http://rattrapagegit/?url=ModifierProfil">
- 
-        <span id="Suprimer"><button type="submit" name="delete" value="delete" id="delete" class="btn btn-danger">Suprimer</button></span>
+        <span id="delete"><button type="submit" name="delete" value="delete" id="delete" class="btn btn-danger">Suprimer</button></span>
 
 </form>
 

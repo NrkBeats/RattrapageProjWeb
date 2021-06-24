@@ -1,10 +1,5 @@
 <?php 
-
-
-
     $produits = new Produits;
-    $tabproduits= $produits->getOffres()->fetchAll();
-
-    
+    $tabproduits= $produits->getProduits()->fetchAll();
 
 ?>

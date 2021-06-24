@@ -9,9 +9,9 @@
 
 
         if($url[0] == 'accueil'){
-            
 
-            require_once './models/AccueilModel.php';
+            require './View/NavBarUtilisateursView.php';
+            require_once './models/ProduitsModel.php';
             require './controllers/AccueilController.php';
             require_once './View/AccueilView.php';
 
@@ -21,6 +21,7 @@
 
             if (!isset($_SESSION['login'])){
 
+                require './View/NavBarUtilisateursView.php';
                 require_once './View/ConexionView.php';
                 require_once './models/PersonneModel.php';
                 require_once './controllers/ConnexionController.php';
@@ -41,7 +42,7 @@
 
         elseif($url[0] == 'Dashboard'){
 
-
+            require './View/NavBarUtilisateursView.php';
             require_once './models/PersonneModel.php';
             require './controllers/AdmindashboardController.php';
             require './View/AdminPannelView.php';    
@@ -49,6 +50,7 @@
 
         elseif($url[0] == 'ModifierProfil'){
 
+            require './View/NavBarUtilisateursView.php';
             require_once './models/PersonneModel.php';
             require './controllers/ModifierpersonneController.php';
             require './View/ModifPersonneView.php';
@@ -57,6 +59,7 @@
 
         elseif($url[0] == 'Inscription'){
 
+            require './View/NavBarUtilisateursView.php';
             require_once './models/PersonneModel.php';
             require './controllers/AjouterPersonneController.php';
             require './View/InscriptionView.php';
@@ -64,6 +67,11 @@
 
 
         
+    }
+
+    elseif(isset($_GET['produit'])){
+
+        echo $_GET['produit'];
     }
 
     else{
