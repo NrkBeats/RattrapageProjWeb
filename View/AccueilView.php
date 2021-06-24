@@ -20,7 +20,7 @@
 </head>
 <body>
 
-<div id="Users" class="col-md-6 well">
+<div id="Produits" class="col-md-6 well">
         <h2>Liste des Vélos:</h2>
         <div><table id="ProduitsList" class="table table-bordered">
 

@@ -71,7 +71,10 @@
 
     elseif(isset($_GET['produit'])){
 
-        echo $_GET['produit'];
+        require './models/ProduitsModel.php';
+        require './controllers/PageProduitController.php';
+        require './View/PageProduitView.php';
+        
     }
 
     else{

@@ -7,6 +7,14 @@ class Produits extends AccesBDDModel {
         $produits = $this->executer($sql);
         return $produits;
     }
+
+    public function readProduitbyid($id_produit){
+
+        $sql = 'SELECT * FROM `produit` WHERE ID_Produit = ?';
+        $produits = $this->executerparam($sql, array($id_produit));
+
+        return $produits;
+    }
 }
 
 ?>
