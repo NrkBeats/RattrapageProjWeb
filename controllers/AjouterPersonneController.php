@@ -1,9 +1,17 @@
 <?php
 
-    require_once '../models/PersonneModel.php';
-    require_once '../View/InscriptionView.php';
+echo "test";
 
+    if(isset($_SESSION['login']) && $_SESSION['role'] == 0){
+
+        header('Location: http://rattrapagegit/?url=accueil');
+    }
     
+    else {
+
+        echo 'wouhou';
+    }
+
 
     if (isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["login"]) && isset($_POST["pass"]) ){
 
@@ -22,23 +30,19 @@
         print_r($loginpersonne[0][5]);
         if ($loginpersonne[0][5]==$login){
 
-            header('Location: ../controllers/AjouterPersonneController');
+            header('Location: http://rattrapagegit/?url=Inscription');
         }
 
         else{
 
             $personne = new Personne;
             $tabpersonne = $personne->createPersonne($nom,$prenom,$login,$password,$role);
-            header('Location: ../controllers/ConnexionController');
+            header('Location: http://rattrapagegit/?url=Connexion');
 
 
         }             
     }
 
-    else{
-
-        echo "bienvenue";
-    }
 ?>
 
 

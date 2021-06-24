@@ -1,6 +1,15 @@
 <?php 
 
-    $id_personne = $_POST["Id_personne_form"];
+    if (isset($_POST["Id_personne_form"])) {
+
+        $id_personne = $_POST["Id_personne_form"];
+    }
+
+    else {
+
+        $id_personne = $_SESSION['ID'];
+    }
+
     $personne = new Personne;
     $tabpersonneid = $personne->readPersonnebyid($id_personne)->fetchAll();
 
@@ -12,7 +21,7 @@
         $prenom = $_POST["modifprenom"];
         $login = $_POST["modiflogin"];
         $mdp = $_POST["modifpass"];
-        $role = 0;
+        $role = $_POST["modifrole"];
         $personne = new Personne;
         $tabpersonne = $personne->adminupdatePersonne($id_personne,$mdp,$role,$nom,$prenom,$login);
     
@@ -28,7 +37,7 @@
 
     else {
 
-        if ($tabpersonneid == NULL){
+        if ($tabpersonneid == NULL && !isset($_POST['modifier'])){
 
             header('Location: http://rattrapagegit/?url=Dashboard ');
             exit();

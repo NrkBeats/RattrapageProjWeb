@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<script src="./assets./vendors./jquery/jquery-3.5.1.min.js"></script>
-<link rel="stylesheet" href="./assets/vendors/bootstrap/css/bootstrap.min.css">
-<script src="./assets/vendors/bootstrap/js/bootstrap.bundle.js"></script>
-<link rel="stylesheet" href="./assets/vendors/fontawesome/css/all.min.css">
+
 <html>
    <head>
       <meta charset="utf-8" />
@@ -11,7 +8,7 @@
 
       <h1>Inscription</h1>
       <div class="erreur"></div>
-      <form id="AnnonceForm" name="fo" method="post" action="../controllers/AjouterPersonneController.php">
+      <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=Inscription">
          <div class="form-row">
             <div class="col-md-2 mb-3">
                <label for="nom">Nom :*</label>

@@ -13,6 +13,8 @@
                 print_r("deuxième if reussi");
                 $_SESSION['login'] = $login;
                 $_SESSION['role'] = $loginpersonne[0][2];
+                $_SESSION['ID'] = $loginpersonne[0][0];
+
 
                 header('Location: http://rattrapagegit/?url=accueil');
 

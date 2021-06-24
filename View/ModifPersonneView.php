@@ -41,6 +41,16 @@
                <label for="prenom">Mot de passe :*</label>
                <input type="password" class="form-control" name="modifpass" id="modifpass" placeholder="Mot de passe" value= "<?php echo $ModifPersMdp; ?>">
             </div>
+         <?php if($_SESSION["role"]==1){
+
+            print_r('<div class="form-row">');
+            print_r('<div class="col-md-2 mb-3">');
+            print_r('<label for="role">Rôle (0 = utilisateur, 1 = admin) :*</label>');
+            print_r('<input type="password" class="form-control" name="modifrole" id="modifrole" placeholder="Mot de passe" value= "'.$ModifPersRole.'"');
+            print_r('<div class="form-row">');
+         }
+         ?>
+
          <button type="submit" name='SubmitButton' class="btn btn-primary">Valider avec validation</button>
          </form>
          <form method="post" action="http://rattrapagegit/?url=ModifierProfil">

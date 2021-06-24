@@ -55,6 +55,14 @@
 
         }
 
+        elseif($url[0] == 'Inscription'){
+
+            require_once './models/PersonneModel.php';
+            require './controllers/AjouterPersonneController.php';
+            require './View/InscriptionView.php';
+        }
+
+
         
     }
 
