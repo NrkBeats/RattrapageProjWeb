@@ -32,13 +32,22 @@
 
     elseif(isset($_POST["delete"])){
 
-        $personne = new Personne;
+
+        //supprimes les commentaires de la personne avant de supprimer la personne
+
         if(!isset($id_personne)){
 
             $id_personne= $_SESSION["ID_Utilisateur_modif"];
         }
 
+        $com = new Commentaire;
+        $commentaire = $com->deletecomid($id_personne);
+
+        $personne = new Personne;
         $tabpersonne = $personne->DeletePersonne($id_personne);
+
+        
+
         header('Location: http://rattrapagegit/?url=Dashboard');
     }
 

@@ -56,6 +56,8 @@
 
             require './View/NavBarUtilisateursView.php';
             require_once './models/PersonneModel.php';
+            require_once './models/CommentaireModel.php';
+        
             require './controllers/ModifierpersonneController.php';
             require './View/ModifPersonneView.php';
 
@@ -66,7 +68,7 @@
             require './View/NavBarUtilisateursView.php';
             require_once './models/ProduitsModel.php';
             require './controllers/ModifierProduitsController.php';
-            //require './View/ModifPersonneView.php';
+            require './View/ModifierProduitView.php';
 
         }
 

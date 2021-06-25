@@ -67,7 +67,7 @@
     <?php
 
     if ($_SESSION['role']==1){
-        
+
         echo'<section id = produits>
         <div id="Users" class="col-md-6 well">
             <h2>Liste des Produits:</h2>
@@ -86,7 +86,7 @@
                             echo "<tbody><tr>";
                             echo "<td>--".$tabproduits[$i][0]."--</td>";
                             echo "<td>--".$tabproduits[$i][1]."--</td>";
-                            echo "<td>--".$tabproduits[$i][4]."--</td>";
+                            echo "<td>--".$tabproduits[$i][3]."--</td>";
 
                             echo "</tr></tbody>";
                             $i++;
@@ -104,7 +104,7 @@
                              
                             print_r('<label for="Id_personne_form">Id du produit où le stock doit être modifié</label>');
                          
-                            print_r('<input type="text" class="form-control" name="Id_personne_form" id="Id_personne_form" placeholder="ID" >'); 
+                            print_r('<input type="text" class="form-control" name="Id_produit_form" id="Id_produit_form" placeholder="ID" >'); 
                         
                         }
                             

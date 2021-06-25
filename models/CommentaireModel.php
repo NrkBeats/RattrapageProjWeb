@@ -20,6 +20,17 @@ class Commentaire extends AccesBDDModel {
         return $produits;
     }
 
+    public function deletecomid($id_client){
+
+        $sql = 'DELETE FROM `commentaire` WHERE ID_Client = ?';
+        $commentaire = $this->executerparam($sql, array($id_client));
+
+        return $commentaire;
+
+
+
+    }
+
 }
 
 ?>

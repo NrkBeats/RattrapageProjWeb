@@ -15,6 +15,14 @@ class Produits extends AccesBDDModel {
 
         return $produits;
     }
+
+    public function UpdateStock($stock,$id_produit){
+
+        $sql = 'UPDATE produit SET Stock_Produit = ? WHERE ID_Produit = ?';
+        $produits = $this->executerparam($sql, array($stock,$id_produit));
+
+        return $produits;
+    }
 }
 
 ?>
