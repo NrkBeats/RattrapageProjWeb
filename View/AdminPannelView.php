@@ -56,13 +56,81 @@
                               
                               
                               <button type="submit" name="modifier" class="btn btn-primary">modifier</button>
-
+                </div>
+                </div>
+                    </form>
+               </div>
             </div>
             </div>
-                           </form>
+    </section>
 
-                
+    <?php
 
+    if ($_SESSION['role']==1){
+        
+        echo'<section id = produits>
+        <div id="Users" class="col-md-6 well">
+            <h2>Liste des Produits:</h2>
+            <div><table id="UserList" class="table table-bordered">
+                <thead class="alert-info">
+                    <tr>
+                        <th>- ID -</th>
+                        <th>- Nom -</th>
+                        <th>- stock -</th>
+                    </tr>
+                </thead>
+    ';
+                    $i = 0;
+                        while ($i < count($tabproduits)){
+
+                            echo "<tbody><tr>";
+                            echo "<td>--".$tabproduits[$i][0]."--</td>";
+                            echo "<td>--".$tabproduits[$i][1]."--</td>";
+                            echo "<td>--".$tabproduits[$i][4]."--</td>";
+
+                            echo "</tr></tbody>";
+                            $i++;
+                        }                           
+            
+            echo '</table> </div>
+            <div>
+            <h1>modifier le stock</h1>
+                  <div class="erreur"></div>
+                       <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierProduit">
+                          <div class="form-row">
+                         <div class="col-md-2 mb-3">';
+
+                         if($_SESSION['role']==1){
+                             
+                            print_r('<label for="Id_personne_form">Id du produit où le stock doit être modifié</label>');
+                         
+                            print_r('<input type="text" class="form-control" name="Id_personne_form" id="Id_personne_form" placeholder="ID" >'); 
+                        
+                        }
+                            
+                  
+echo '<button type="submit" name="modifier" class="btn btn-primary">modifier</button>
             </div>
+                </form>
+           </div>
+        </div>
+
+    
+
+
+
+</section>';
+
+
+    }
+    
+
+    ?>
+
+
+
+
+</main>
+            
 
 

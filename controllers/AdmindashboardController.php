@@ -10,6 +10,9 @@
         $personne = new Personne;
         $tabpersonneid = $personne->readPersonneall()->fetchAll();
 
+        $produits = new Produits;
+        $tabproduits= $produits->getProduits()->fetchAll();
+
     }
     
     elseif($_SESSION['role'] == 0){

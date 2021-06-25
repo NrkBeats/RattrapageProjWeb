@@ -67,8 +67,7 @@
       </div>
 
 
-   <button type="submit" class="btn btn-primary">Commenter</button>
-   <p style="color : red;" id="erreur"></p>        
+   <button type="submit" class="btn btn-primary">Commenter</button> 
 
    </div>
 
