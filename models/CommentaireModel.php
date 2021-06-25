@@ -20,6 +20,14 @@ class Commentaire extends AccesBDDModel {
         return $commentaire;
     }
 
+    public function readCommID($id_commentaire){
+
+        $sql = 'SELECT * FROM `commentaire` where ID_COMMENTAIRE =?';
+        $commentaire = $this->executerparam($sql, array($id_commentaire));
+
+        return $commentaire;
+    }
+
     public function insertcom($description, $id_client, $id_produit){
 
         $sql = 'INSERT INTO `commentaire` (`Description_commentaire`, `ID_Client`, `ID_Produit`) VALUES (?,?,?)';
@@ -35,8 +43,23 @@ class Commentaire extends AccesBDDModel {
 
         return $commentaire;
 
+    }
 
+    public function deletecom($id_commentaire){
 
+        $sql = 'DELETE FROM `commentaire` WHERE ID_COMMENTAIRE = ?';
+        $commentaire = $this->executerparam($sql, array($id_commentaire));
+
+        return $commentaire;
+
+    }
+
+    public function updateCom($desc_commentaire, $id_commentaire){
+
+        $sql = 'UPDATE commentaire SET Description_commentaire = ? WHERE ID_COMMENTAIRE = ?';
+        $commentaire = $this->executerparam($sql, array($desc_commentaire, $id_commentaire));
+
+        return $commentaire;      
     }
 
 }

@@ -146,13 +146,13 @@
             <div>
             <h1>modifier le commentaire</h1>
                   <div class="erreur"></div>
-                       <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierProduit">
+                       <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierCommentaires">
                           <div class="form-row">
                          <div class="col-md-2 mb-3">
                              
                             <label for="Id_personne_form">Id du commentaire à supprimer ou modifier</label>
                          
-                            <input type="text" class="form-control" name="Id_produit_form" id="Id_produit_form" placeholder="ID" > 
+                            <input type="text" class="form-control" name="Id_commentaire_form" id="Id_commentaire_form" placeholder="ID" > 
                             
                   
         <button type="submit" name="modifier" class="btn btn-primary">modifier</button>

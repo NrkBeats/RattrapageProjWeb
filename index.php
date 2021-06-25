@@ -72,7 +72,14 @@
             require './View/ModifierProduitView.php';
 
         }
+        elseif($url[0] == 'ModifierCommentaires'){
 
+            require './View/NavBarUtilisateursView.php';
+            require_once './models/CommentaireModel.php';
+            require './controllers/ModifierCommentairesController.php';
+            require './View/ModifierCommentairesView.php';
+
+        }
         elseif($url[0] == 'Inscription'){
 
             require './View/NavBarUtilisateursView.php';
