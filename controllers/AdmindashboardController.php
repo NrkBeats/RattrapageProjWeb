@@ -13,6 +13,9 @@
         $produits = new Produits;
         $tabproduits= $produits->getProduits()->fetchAll();
 
+        $commentaire = new Commentaire;
+        $tabcommentaire= $commentaire->readComm()->fetchAll();
+
     }
     
     elseif($_SESSION['role'] == 0){

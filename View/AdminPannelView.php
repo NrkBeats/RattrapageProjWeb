@@ -46,7 +46,7 @@
                 ?>
                 </table> </div>
                 <div>
-                <h1>modifier le compte</h1>
+                <h2>modifier le compte</h2>
                       <div class="erreur"></div>
                            <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierProfil">
                               <div class="form-row">
@@ -94,22 +94,68 @@
             
             echo '</table> </div>
             <div>
-            <h1>modifier le stock</h1>
+            <h2>modifier le stock</h2>
                   <div class="erreur"></div>
                        <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierProduit">
                           <div class="form-row">
-                         <div class="col-md-2 mb-3">';
-
-                         if($_SESSION['role']==1){
+                         <div class="col-md-2 mb-3">
                              
-                            print_r('<label for="Id_personne_form">Id du produit où le stock doit être modifié</label>');
+                         <label for="Id_personne_form">Id du produit où le stock doit être modifié</label>
                          
-                            print_r('<input type="text" class="form-control" name="Id_produit_form" id="Id_produit_form" placeholder="ID" >'); 
+                        <input type="text" class="form-control" name="Id_produit_form" id="Id_produit_form" placeholder="ID" >
                         
-                        }
+                       
                             
                   
-echo '<button type="submit" name="modifier" class="btn btn-primary">modifier</button>
+        <button type="submit" name="modifier" class="btn btn-primary">modifier</button>
+            </div>
+                </form>
+           </div>
+        </div>
+        </section>';
+
+
+
+        echo'<section id = produits>
+        <div id="Users" class="col-md-6 well">
+            <h2>Liste des Commentaires:</h2>
+            <div><table id="UserList" class="table table-bordered">
+                <thead class="alert-info">
+                    <tr>
+                        <th>- ID Commentaire -</th>
+                        <th>- Description -</th>
+                        <th>- Id utilisateur -</th>
+                        <th>- Id produit -</th>
+                    </tr>
+                </thead>
+    ';
+                    $i = 0;
+                        while ($i < count($tabcommentaire)){
+
+                            echo "<tbody><tr>";
+                            echo "<td>".$tabcommentaire[$i][0]."</td>";
+                            echo "<td>".$tabcommentaire[$i][1]."</td>";
+                            echo "<td>".$tabcommentaire[$i][2]."</td>";
+                            echo "<td>".$tabcommentaire[$i][3]."</td>";
+
+                            echo "</tr></tbody>";
+                            $i++;
+                        }                           
+            
+            echo '</table> </div>
+            <div>
+            <h1>modifier le commentaire</h1>
+                  <div class="erreur"></div>
+                       <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierProduit">
+                          <div class="form-row">
+                         <div class="col-md-2 mb-3">
+                             
+                            <label for="Id_personne_form">Id du commentaire à supprimer ou modifier</label>
+                         
+                            <input type="text" class="form-control" name="Id_produit_form" id="Id_produit_form" placeholder="ID" > 
+                            
+                  
+        <button type="submit" name="modifier" class="btn btn-primary">modifier</button>
             </div>
                 </form>
            </div>
@@ -119,7 +165,9 @@ echo '<button type="submit" name="modifier" class="btn btn-primary">modifier</bu
 
 
 
-</section>';
+        </section>';
+
+
 
 
     }

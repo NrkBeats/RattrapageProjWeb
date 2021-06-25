@@ -12,6 +12,14 @@ class Commentaire extends AccesBDDModel {
         return $commentaire;
     }
 
+    public function readComm(){
+
+        $sql = 'SELECT * FROM `commentaire`';
+        $commentaire = $this->executer($sql);
+
+        return $commentaire;
+    }
+
     public function insertcom($description, $id_client, $id_produit){
 
         $sql = 'INSERT INTO `commentaire` (`Description_commentaire`, `ID_Client`, `ID_Produit`) VALUES (?,?,?)';

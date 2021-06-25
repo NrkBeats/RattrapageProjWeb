@@ -47,6 +47,7 @@
 
             require_once './models/PersonneModel.php';
             require_once './models/ProduitsModel.php';
+            require_once './models/CommentaireModel.php';
 
             require './controllers/AdmindashboardController.php';
             require './View/AdminPannelView.php';    
