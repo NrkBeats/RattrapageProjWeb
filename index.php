@@ -1,4 +1,5 @@
 <?php
+    //fichier de route pour paramétrer les liens entre les fichiers et éviter que l'utilisateur n'accède à tous les fichiers
     require_once './models/AccesBDDModel.php';
     session_start();
     $url = '';
@@ -43,7 +44,10 @@
         elseif($url[0] == 'Dashboard'){
 
             require './View/NavBarUtilisateursView.php';
+
             require_once './models/PersonneModel.php';
+            require_once './models/ProduitsModel.php';
+
             require './controllers/AdmindashboardController.php';
             require './View/AdminPannelView.php';    
         }
@@ -57,12 +61,22 @@
 
         }
 
+        elseif($url[0] == 'ModifierProduit'){
+
+            require './View/NavBarUtilisateursView.php';
+            require_once './models/ProduitsModel.php';
+            require './controllers/ModifierProduitsController.php';
+            //require './View/ModifPersonneView.php';
+
+        }
+
         elseif($url[0] == 'Inscription'){
 
             require './View/NavBarUtilisateursView.php';
             require_once './models/PersonneModel.php';
             require './controllers/AjouterPersonneController.php';
             require './View/InscriptionView.php';
+            
         }
 
 
