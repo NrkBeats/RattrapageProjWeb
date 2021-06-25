@@ -16,6 +16,8 @@
             <th>- Description -</th>
             <th>- stock -</th>
             <th>- Prix -</th>
+            <th>- note moyenne -</th>
+            <th>- nombre de notes -</th>
 
         </tr>
 
@@ -23,15 +25,65 @@
 
         // affichage des éléments qui composent le produit
         echo "<tbody><tr>";
-        echo "<td> -- ".$tabproduits[0][1]."-- </td>";
-        echo "<td>--".$tabproduits[0][2]."--</td>";
-        echo "<td>--".$tabproduits[0][3]."--</td>";  
-        echo "<td>--".$tabproduits[0][4]."--</td>";
+        echo "<td>  ".$tabproduits[0][1]." </td>";
+        echo "<td> ".$tabproduits[0][2]." </td>";
+        echo "<td> ".$tabproduits[0][3]." </td>";  
+        echo "<td> ".$tabproduits[0][4]." </td>";
+        echo "<td> ".$moyenne." / 5 </td>";
+        echo "<td> ".count($notetotal)."</td>";
         echo "</tr></tbody>";
+        echo "</table></div>";
+
+        if($note != NULL){
+            echo('<p>Vous avez attribué la note de '.$note[0][0].'/5</p>');
+        }
+
+        else {
+
+            echo'
+
+            <form id="Note" name="Note" method="post" action="http://rattrapagegit/?produit=<?php echo $tabproduits[0][0]; ?>">
+                <p>Entrez la note que vous voulez attribuer au produit (pas de retour en arrière possible)</p>
+                <div>
+                  <input type="radio" id="contactChoice1"
+                   name="contact" value="1">
+                  <label for="contactChoice1">1</label>
+              
+                  <input type="radio" id="contactChoice2"
+                   name="contact" value="2">
+                  <label for="contactChoice2">2</label>
+              
+                  <input type="radio" id="contactChoice3"
+                   name="contact" value="3">
+                  <label for="contactChoice3">3</label>
+              
+                  <input type="radio" id="contactChoice3"
+                   name="contact" value="4">
+                  <label for="contactChoice3">4</label>
+              
+                  <input type="radio" id="contactChoice3"
+                   name="contact" value="5">
+                  <label for="contactChoice3">5</label>
+              
+                </div>
+                <div>
+                  <button type="submit">Submit</button>
+                </div>
+              </form>
+';
+
+
+            
+        }
+
 
         ?>
 
-        </table></div>
+
+
+
+
+        
 
 
         <h2>Section Commentaires</h2>
@@ -49,7 +101,9 @@
             echo "<td>".$commentaire[$i][1]."</td>";
             echo "</tr></tbody>";
             $i++;
-        }  
+        }
+        
+        
 
         ?>
 
@@ -70,6 +124,7 @@
    <button type="submit" class="btn btn-primary">Commenter</button> 
 
    </div>
+</form>
 
 
 

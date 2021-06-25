@@ -98,6 +98,7 @@
 
         require './View/NavBarUtilisateursView.php';
         require './models/ProduitsModel.php';
+        require './models/NoteModel.php';
         require './models/CommentaireModel.php';
         require './controllers/PageProduitController.php';
         require './View/PageProduitView.php';

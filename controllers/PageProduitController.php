@@ -15,6 +15,36 @@ if(isset($_SESSION['login'])){
     $commentaires = new Commentaire;
     $commentaire = $commentaires->readCommbyidproduit($idproduit)->fetchAll();
 
+    //récupération du vote de la vue
+
+    if(isset($_POST['contact'])){
+
+        
+    }
+
+    //récupération de la note attribuée de l'utilisateur connecté
+
+    $id_personne = $_SESSION['ID'];
+    $notation = new Note;
+    $note = $notation->getNoteId($id_personne,$idproduit)->fetchAll();
+
+    //récupération des notes et moyenne
+
+    $objnote = new Note;
+    $notetotal = $objnote->getNoteprod($idproduit)->fetchAll();
+    $i = 0;
+    $somme = 0;
+    $moyenne = 0;
+
+    while ($i < count($notetotal)){
+       
+        $somme = $somme + $notetotal[$i][0];
+        $moyenne = $somme/count($notetotal);
+        $i++;
+    }
+
+
+
     //Si le produit demandé n'existe pas on est redirigé vers une page d'erreur
 
     if ($tabproduits == NULL){
