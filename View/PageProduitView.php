@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="Produits" class="col-md-6 well">
-        <h2>Fiche produit de : <?php echo $tabproduits[0][1] ?></h2>
+        <h2>Fiche produit de : <?php echo $_SESSION['Id_Produit'] ?></h2>
             <div><table id="ProduitsList" class="table table-bordered">
 
         <tr>
@@ -21,7 +21,8 @@
 
         </tr>
 
-        <?php       
+        <?php  
+        
 
         // affichage des éléments qui composent le produit
         echo "<tbody><tr>";
@@ -29,20 +30,20 @@
         echo "<td> ".$tabproduits[0][2]." </td>";
         echo "<td> ".$tabproduits[0][3]." </td>";  
         echo "<td> ".$tabproduits[0][4]." </td>";
-        echo "<td> ".$moyenne." / 5 </td>";
+        echo "<td> ".number_format($moyenne,2)." / 5 </td>";
         echo "<td> ".count($notetotal)."</td>";
         echo "</tr></tbody>";
         echo "</table></div>";
 
         if($note != NULL){
-            echo('<p>Vous avez attribué la note de '.$note[0][0].'/5</p>');
+            print_r('<p>Vous avez attribué la note de '.$note[0][0].'/5</p>');
         }
 
         else {
 
             echo'
 
-            <form id="Note" name="Note" method="post" action="http://rattrapagegit/?produit=<?php echo $tabproduits[0][0]; ?>">
+            <form id="Note" name="Note" method="post" action="http://rattrapagegit/?produit='.$tabproduits[0][0].'">
                 <p>Entrez la note que vous voulez attribuer au produit (pas de retour en arrière possible)</p>
                 <div>
                   <input type="radio" id="contactChoice1"

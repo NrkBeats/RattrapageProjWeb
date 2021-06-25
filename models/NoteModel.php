@@ -20,6 +20,18 @@ class Note extends AccesBDDModel {
         return $note;
     
     }
+
+    public function InsertNote($id_produit,$id_personne,$valeurnote){
+
+        $sql = "INSERT INTO `note` ( `Score_Note`, `ID_Produit`, `ID_Client`) VALUES ( ?, ?,?)";
+        $note = $this->executerparam($sql, array($valeurnote, $id_produit, $id_personne));
+
+        return $note;    
+    }
+
+    
+
+
 }
 
 ?>

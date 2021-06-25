@@ -5,33 +5,43 @@ if(isset($_SESSION['login'])){
 
     //récupération des données à l'aide des classes contenues dans les modèles
 
-    $idproduit = $_GET['produit'];
+    if(isset($_GET['produit'])){
+
+        $_SESSION['Id_Produit'] = $_GET['produit'];
+    }
+    
 
     $produits = new Produits;
-    $tabproduits= $produits->readProduitbyid($idproduit)->fetchAll();
+    $tabproduits= $produits->readProduitbyid($_SESSION['Id_Produit'])->fetchAll();
 
     //récupération des commentaires 
 
     $commentaires = new Commentaire;
-    $commentaire = $commentaires->readCommbyidproduit($idproduit)->fetchAll();
+    $commentaire = $commentaires->readCommbyidproduit($_SESSION['Id_Produit'])->fetchAll();
 
-    //récupération du vote de la vue
 
-    if(isset($_POST['contact'])){
-
-        
-    }
 
     //récupération de la note attribuée de l'utilisateur connecté
 
     $id_personne = $_SESSION['ID'];
     $notation = new Note;
-    $note = $notation->getNoteId($id_personne,$idproduit)->fetchAll();
+    $note = $notation->getNoteId($id_personne,$_SESSION['Id_Produit'])->fetchAll();
+
+
+    //récupération du vote de la vue pour mettre dans la BDD
+
+    if(isset($_POST['contact'])){
+
+
+        $objaddnote = new Note;
+        $addnote = $objaddnote->InsertNote($_SESSION['Id_Produit'],$id_personne,$_POST['contact']);
+        header("Location: http://rattrapagegit/?produit=".$tabproduits[0][0]);        
+    }
 
     //récupération des notes et moyenne
 
     $objnote = new Note;
-    $notetotal = $objnote->getNoteprod($idproduit)->fetchAll();
+    $notetotal = $objnote->getNoteprod($_SESSION['Id_Produit'])->fetchAll();
     $i = 0;
     $somme = 0;
     $moyenne = 0;
@@ -47,7 +57,7 @@ if(isset($_SESSION['login'])){
 
     //Si le produit demandé n'existe pas on est redirigé vers une page d'erreur
 
-    if ($tabproduits == NULL){
+    if ($tabproduits == NULL && !isset($_POST['contact'])){
 
         header('Location: http://rattrapagegit/Erreur');        
     }
@@ -60,8 +70,7 @@ if(isset($_SESSION['login'])){
         $id = $_SESSION['ID'];
 
         $recupcom = new Commentaire;
-        $com = $recupcom->insertcom($description,$id,$idproduit);
-        echo $idproduit;
+        $com = $recupcom->insertcom($description,$id,$_SESSION['Id_Produit']);
         header("Location: http://rattrapagegit/?produit=".$tabproduits[0][0]."'");
     }
     
