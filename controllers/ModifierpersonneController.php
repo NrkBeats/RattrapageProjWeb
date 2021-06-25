@@ -43,6 +43,11 @@
         $com = new Commentaire;
         $commentaire = $com->deletecomid($id_personne);
 
+        //supprime les notes que la personne a attribué avant de supprimer la personne
+
+        $objnote = new Note;
+        $suppnote = $objnote->deletenoteid($id_personne);
+
         $personne = new Personne;
         $tabpersonne = $personne->DeletePersonne($id_personne);
 

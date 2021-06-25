@@ -29,7 +29,14 @@ class Note extends AccesBDDModel {
         return $note;    
     }
 
-    
+    public function deletenoteid($id_client){
+
+        $sql = 'DELETE FROM `note` WHERE ID_Client = ?';
+        $notedel = $this->executerparam($sql, array($id_client));
+
+        return $notedel;
+
+    }
 
 
 }

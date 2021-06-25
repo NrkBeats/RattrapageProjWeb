@@ -58,6 +58,8 @@
             require './View/NavBarUtilisateursView.php';
             require_once './models/PersonneModel.php';
             require_once './models/CommentaireModel.php';
+            require './models/NoteModel.php';
+
         
             require './controllers/ModifierpersonneController.php';
             require './View/ModifPersonneView.php';
