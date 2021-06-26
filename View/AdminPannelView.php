@@ -202,10 +202,9 @@
                 ?>
                 </table> </div>
                 <div>
-                <p>ajouter une adresse</p>
                       <div class="erreur"></div>
-                           <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierProfil">      
-                              <button type="submit" name="ajouter" class="btn btn-primary">ajouter</button>
+                           <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=AjouterAdresse">      
+                              <button type="submit" name="ajouter" class="btn btn-primary">ajouter une adresse</button>
                 </div>
                 </div>
                     </form>

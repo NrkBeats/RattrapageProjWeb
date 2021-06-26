@@ -44,7 +44,6 @@
         $objnote = new Like;
         $likedel = $objnote->deletelikecli($id_personne);
 
-
         $com = new Commentaire;
         $commentaire = $com->deletecomid($id_personne);
 
@@ -53,8 +52,13 @@
         $objnote = new Note;
         $suppnote = $objnote->deletenoteid($id_personne);
 
+        $objadresse = new Adresse;
+        $supadresse = $objadresse->deleteadresse($id_personne);
+
         $personne = new Personne;
         $tabpersonne = $personne->DeletePersonne($id_personne);
+
+        
 
         
 
