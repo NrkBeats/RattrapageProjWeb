@@ -91,19 +91,45 @@
     // affichage de tous les commentaires en liens avec le produit
 
         $i = 0;
-        while ($i < count($commentaire)){
 
-            echo "<tbody><tr>";
-            echo "<td>".$listefinaledescoms[$i]."</td>";
-            echo "<td>(".$listetri[$i][1].")</td>";
+        if (isset($listefinaledescoms)){
 
-            //rajoute les likes au lien
-            echo '<td><a href="http://rattrapagegit/?commentaire='.$commentaire[$i][0].'">like</a></td>';
-            echo '</tr></tbody>';
-            $i++;
+            while ($i < count($listefinaledescoms)){
+
+                echo "<tbody><tr>";
+                echo "<td>".$listefinaledescoms[$i][0]."</td>";
+                echo "<td>----- : ".$listetri[$i][1]." |</td>";
+    
+                //rajoute les likes au lien
+    
+    
+                // récupère la vérification de like, si la personne a liké alors elle ne peut
+                //plus le refaire
+    
+                if ($listefinaledescoms[$i][1] == 0){
+    
+                    echo '<td><a href="http://rattrapagegit/?commentaire='.$listetri[$i][0].'">like</a></td>';
+                }
+    
+                else {
+    
+                    echo '<td>vous avez liké</td>';
+                }
+                
+                echo '</tr></tbody>';
+                $i++;
+            }
+    
+
+
+        }
+
+        else{
+
+            echo "pas de commentaires pour l'instant";
         }
         
-
+        
         ?>
 
         </table></div>

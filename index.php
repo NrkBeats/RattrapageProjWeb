@@ -59,6 +59,7 @@
             require_once './models/PersonneModel.php';
             require_once './models/CommentaireModel.php';
             require './models/NoteModel.php';
+            require './models/LikeModel.php';
 
         
             require './controllers/ModifierpersonneController.php';
@@ -78,6 +79,7 @@
 
             require './View/NavBarUtilisateursView.php';
             require_once './models/CommentaireModel.php';
+            require_once './models/LikeModel.php';
             require './controllers/ModifierCommentairesController.php';
             require './View/ModifierCommentairesView.php';
 

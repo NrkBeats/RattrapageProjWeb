@@ -5,9 +5,9 @@ class Like extends AccesBDDModel {
     public function getLikeId($id_personne,$id_commentaire) {
 
         $sql = 'SELECT ID_like FROM liker WHERE ID_Client = ? AND ID_COMMENTAIRE = ?';
-        $like = $this->executerparam($sql, array($id_personne,$id_commentaire));
+        $veriflike = $this->executerparam($sql, array($id_personne,$id_commentaire));
 
-        return $like;
+        return $veriflike;
     
     }
 
@@ -19,26 +19,31 @@ class Like extends AccesBDDModel {
         return $nb;
     
     }
+    
+    public function InsertLike($id_commentaire,$id_personne){
 
+        $sql = "INSERT INTO `liker` (`ID_COMMENTAIRE`, `ID_Client`) VALUES (?,?);";
+        $like = $this->executerparam($sql, array($id_commentaire, $id_personne));
 
-    /*
-    public function InsertNote($id_produit,$id_personne,$valeurnote){
-
-        $sql = "INSERT INTO `note` ( `Score_Note`, `ID_Produit`, `ID_Client`) VALUES ( ?, ?,?)";
-        $note = $this->executerparam($sql, array($valeurnote, $id_produit, $id_personne));
-
-        return $note;    
+        return $like;    
     }
 
-    public function deletenoteid($id_client){
+    public function deletelikecli($id_client){
 
-        $sql = 'DELETE FROM `note` WHERE ID_Client = ?';
-        $notedel = $this->executerparam($sql, array($id_client));
+        $sql = 'DELETE FROM `liker` WHERE ID_Client = ?';
+        $likedel = $this->executerparam($sql, array($id_client));
 
-        return $notedel;
+        return $likedel;
 
     }
-*/
+    public function deletelikecomm($id_commentaire){
+
+        $sql = 'DELETE FROM `liker` WHERE ID_COMMENTAIRE = ?';
+        $likedel = $this->executerparam($sql, array($id_commentaire));
+
+        return $likedel;
+
+    }
 
 }
 

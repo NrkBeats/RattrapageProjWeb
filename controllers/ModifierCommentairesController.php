@@ -41,6 +41,11 @@
 
             $id_commentaire= $_SESSION["ID_Commentaire_modif"];
         }
+//supprime les likes associés au commentaire
+
+        $objlike = new Like;
+        $likedel = $objlike->deletelikecomm($id_commentaire);
+
 //supprimes les commentaires 
         $com = new Commentaire;
         $commentaire = $com->deletecom($id_commentaire);

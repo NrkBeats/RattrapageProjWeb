@@ -40,6 +40,11 @@
             $id_personne= $_SESSION["ID_Utilisateur_modif"];
         }
 
+        //supprime les Likes Attribués avant de supprimer les commentaires de la personne et la personne
+        $objnote = new Like;
+        $likedel = $objnote->deletelikecli($id_personne);
+
+
         $com = new Commentaire;
         $commentaire = $com->deletecomid($id_personne);
 

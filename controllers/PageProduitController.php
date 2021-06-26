@@ -22,7 +22,7 @@ if(isset($_SESSION['login'])){
 
 
 
-    //récupération des commentaires et leur nombre de likes pour créer une liscte associatn les deux mêmes si les likes n'existentpas
+    //récupération des commentaires et leur nombre de likes pour créer une liste associant les deux mêmes si les likes n'existentpas
 
 
     $i = 0;
@@ -42,9 +42,10 @@ if(isset($_SESSION['login'])){
 
 
     $i = 0;
-    $listetrifini = array();
 
-    //tri du nouveau tableau créé contenant l'ID du commentaire avec son nobre de like
+    //tri du nouveau tableau créé contenant l'ID du commentaire avec son nobre de like + verification de si la
+    //personne a liké ou non
+
     $columns = array_column($listetri, 1);
     array_multisort($columns, SORT_DESC, $listetri);
 
@@ -53,7 +54,22 @@ if(isset($_SESSION['login'])){
         $objcommentaire = new Commentaire;
         $comm = $objcommentaire->readCommID($listetri[$i][0])->fetchAll();
 
-        $listefinaledescoms[$i] = $comm[0][1];
+        $objveriflike = new Like;
+        $veriflike = $objveriflike->getLikeId($_SESSION['ID'],$listetri[$i][0])->fetchAll();
+
+        //attribution de la variable indiquant su la personne a liké ou non
+
+        if ($veriflike == NULL){
+
+            $persalike = 0;
+        }
+        else{
+
+            $persalike = 1;
+        }
+
+
+        $listefinaledescoms[$i] = [$comm[0][1],$persalike];
 
         $i++;
         
