@@ -23,10 +23,12 @@
         $personne = new Personne;
         $tabpersonneid = $personne->readPersonnebyid($_SESSION['ID'])->fetchAll();
 
-        $objadresse = new Adresse;
-        $tabadresse = $objadresse->readadresse($_SESSION['ID'])->fetchAll();
 
     }  
+
+    $objadresse = new Adresse;
+    $tabadresse = $objadresse->readadresse($_SESSION['ID'])->fetchAll();
+
 
     echo $_SESSION['role'];
     

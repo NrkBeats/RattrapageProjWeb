@@ -86,17 +86,5 @@
             $_SESSION['ID_Utilisateur_modif'] = $id_personne;        
     
         }
-
     }
-
-
-
-    
-    
-
-
-
-        
-
-    
 ?>

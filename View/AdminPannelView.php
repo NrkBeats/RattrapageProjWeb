@@ -186,7 +186,7 @@
                     </thead>
                     <?php
 
-                    //affiche la liste des utilisateurs ou les données de l'utilisateur selon les droits
+                    //affiche la liste des adresses
                         $i = 0;
                             while ($i < count($tabadresse)){
 
