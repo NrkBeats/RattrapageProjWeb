@@ -4,6 +4,7 @@
     require_once './models/AdresseModel.php';
     require_once './models/CommentaireModel.php';
     require_once './models/LikeModel.php';
+    require_once './models/PannierModel.php';
     require './models/ProduitsModel.php';
     require './models/NoteModel.php';
     require_once './models/PersonneModel.php';

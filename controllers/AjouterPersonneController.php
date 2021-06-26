@@ -12,31 +12,30 @@ echo "test";
         echo 'wouhou';
     }
 
-
+//si toutes les informations ont été envoyées par la méthode post 
     if (isset($_POST["nom"]) && isset($_POST["prenom"]) && isset($_POST["login"]) && isset($_POST["pass"]) ){
 
-        $nom = $_POST["nom"];
-        $prenom = $_POST["prenom"];
-        $login = $_POST["login"];
-        $password = $_POST["pass"];
-        $role = 0;
-
-
+//on vérifie que le login (censé être une clef primaire) n'est pas déjà pris en cherchant sa valeur dans la bdd
         $personne = new Personne;
-        $loginpersonne = $personne->readPersonnebylogin($login)->fetchAll();
+        $loginpersonne = $personne->readPersonnebylogin($_POST["login"])->fetchAll();
 
 
-
-        print_r($loginpersonne[0][5]);
-        if ($loginpersonne[0][5]==$login){
+//on compare, si c'est le cas on est ramené à la page d'inscription
+        if ($loginpersonne[0][5]==$_POST["login"]){
 
             header('Location: http://rattrapagegit/?url=Inscription');
         }
-
+//si tout est bon, la personne est créée et on instancie la classe panier pour lui créer aussi un panier vide
         else{
 
-            $personne = new Personne;
-            $tabpersonne = $personne->createPersonne($nom,$prenom,$login,$password,$role);
+            $objpersonne = new Personne;
+            $tabpersonne = $objpersonne->createPersonne($_POST["nom"],$_POST["prenom"],$_POST["login"],$_POST["pass"],0);
+            $tabpersonne = $objpersonne->readPersonnebylogin($_POST["login"])->fetchAll();
+            
+
+            $objpanier = new Panier;
+            $panier = $objpanier->CreatePanier($tabpersonne[0][0]);
+
             header('Location: http://rattrapagegit/?url=Connexion');
 
 
