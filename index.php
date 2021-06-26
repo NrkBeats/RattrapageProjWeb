@@ -48,9 +48,11 @@
             require_once './models/PersonneModel.php';
             require_once './models/ProduitsModel.php';
             require_once './models/CommentaireModel.php';
+            require_once './models/AdresseModel.php';
 
             require './controllers/AdmindashboardController.php';
-            require './View/AdminPannelView.php';    
+            require './View/AdminPannelView.php';
+                
         }
 
         elseif($url[0] == 'ModifierProfil'){
@@ -82,6 +84,7 @@
             require_once './models/LikeModel.php';
             require './controllers/ModifierCommentairesController.php';
             require './View/ModifierCommentairesView.php';
+            
 
         }
         elseif($url[0] == 'Inscription'){

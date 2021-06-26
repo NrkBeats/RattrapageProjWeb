@@ -17,8 +17,10 @@
 
 
             <div id="Users" class="col-md-6 well">
-                <h2>Liste des Utilisateurs:</h2>
-                <div><table id="UserList" class="table table-bordered">
+                <?php if ($_SESSION['role'] == 1){
+                    echo '<h2>Liste des Utilisateurs:</h2>';
+                } ?>
+                <div><table id="UserList" class="table table-bordered"> 
                     <thead class="alert-info">
                         <tr>
                             <th>- ID -</th>
@@ -30,6 +32,8 @@
                         </tr>
                     </thead>
                     <?php
+
+                    //affiche la liste des utilisateurs ou les données de l'utilisateur selon les droits
                         $i = 0;
                             while ($i < count($tabpersonneid)){
 
@@ -82,7 +86,7 @@
     ';
                     $i = 0;
                         while ($i < count($tabproduits)){
-
+// affiche les différents produits poir les administrateurs
                             echo "<tbody><tr>";
                             echo "<td>--".$tabproduits[$i][0]."--</td>";
                             echo "<td>--".$tabproduits[$i][1]."--</td>";
@@ -131,7 +135,7 @@
     ';
                     $i = 0;
                         while ($i < count($tabcommentaire)){
-
+// affiche les commentaires si la personne est administrateur
                             echo "<tbody><tr>";
                             echo "<td>".$tabcommentaire[$i][0]."</td>";
                             echo "<td>".$tabcommentaire[$i][1]."</td>";
@@ -161,20 +165,54 @@
            </div>
         </div>
 
-    
-
-
-
         </section>';
-
-
-
-
     }
-    
-
     ?>
+    <section id="Profile">
 
+        <h1>Mes adresses :</h1>
+        <div class="grid-container">
+
+
+            <div id="Users" class="col-md-6 well">  
+                <div><table id="UserList" class="table table-bordered"> 
+                    <thead class="alert-info">
+                        <tr>
+                            <th>- Ville -</th>
+                            <th>- Code Postal -</th>
+                            <th>- Rue et numéro -</th>
+
+                        </tr>
+                    </thead>
+                    <?php
+
+                    //affiche la liste des utilisateurs ou les données de l'utilisateur selon les droits
+                        $i = 0;
+                            while ($i < count($tabadresse)){
+
+                                echo "<tbody><tr>";
+                                echo "<td>".$tabadresse[$i][1]."</td>";
+                                echo "<td>".$tabadresse[$i][2]."</td>";
+                                echo "<td>".$tabadresse[$i][3]."</td>";
+
+
+                                echo "</tr></tbody>";
+                                $i++;
+                            }                           
+                ?>
+                </table> </div>
+                <div>
+                <p>ajouter une adresse</p>
+                      <div class="erreur"></div>
+                           <form id="AnnonceForm" name="fo" method="post" action="http://rattrapagegit/?url=ModifierProfil">      
+                              <button type="submit" name="ajouter" class="btn btn-primary">ajouter</button>
+                </div>
+                </div>
+                    </form>
+               </div>
+            </div>
+            </div>
+    </section>
 
 
 
