@@ -21,6 +21,46 @@ if(isset($_SESSION['login'])){
 
 
 
+
+    //récupération des commentaires et leur nombre de likes pour créer une liscte associatn les deux mêmes si les likes n'existentpas
+
+
+    $i = 0;
+    $listetri = array();
+    while ($i < count($commentaire)){
+
+        $commentaire[$i][0];
+        $objlike = New Like;
+        $nb = $objlike->getnblike($commentaire[$i][0])->fetchAll();
+
+        $listetri[$i] = [$commentaire[$i][0],$nb[0][0]];
+        $i++;
+
+    }
+
+
+
+
+    $i = 0;
+    $listetrifini = array();
+
+    //tri du nouveau tableau créé contenant l'ID du commentaire avec son nobre de like
+    $columns = array_column($listetri, 1);
+    array_multisort($columns, SORT_DESC, $listetri);
+
+    while ($i< count($listetri)){
+
+        $objcommentaire = new Commentaire;
+        $comm = $objcommentaire->readCommID($listetri[$i][0])->fetchAll();
+
+        $listefinaledescoms[$i] = $comm[0][1];
+
+        $i++;
+        
+    }
+    
+
+
     //récupération de la note attribuée de l'utilisateur connecté
 
     $id_personne = $_SESSION['ID'];

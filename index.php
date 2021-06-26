@@ -102,9 +102,16 @@
         require './models/ProduitsModel.php';
         require './models/NoteModel.php';
         require './models/CommentaireModel.php';
+        require './models/LikeModel.php';
         require './controllers/PageProduitController.php';
         require './View/PageProduitView.php';
         
+    }
+
+    elseif(isset($_GET['commentaire'])){
+
+        require './models/LikeModel.php';
+        require './controllers/LikeController.php';
     }
 
     else{

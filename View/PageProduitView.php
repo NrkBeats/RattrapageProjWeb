@@ -79,11 +79,6 @@
 
 
         ?>
-
-
-
-
-
         
 
 
@@ -99,11 +94,14 @@
         while ($i < count($commentaire)){
 
             echo "<tbody><tr>";
-            echo "<td>".$commentaire[$i][1]."</td>";
-            echo "</tr></tbody>";
+            echo "<td>".$listefinaledescoms[$i]."</td>";
+            echo "<td>(".$listetri[$i][1].")</td>";
+
+            //rajoute les likes au lien
+            echo '<td><a href="http://rattrapagegit/?commentaire='.$commentaire[$i][0].'">like</a></td>';
+            echo '</tr></tbody>';
             $i++;
         }
-        
         
 
         ?>
