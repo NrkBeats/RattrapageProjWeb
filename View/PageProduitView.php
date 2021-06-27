@@ -68,7 +68,7 @@
               
                 </div>
                 <div>
-                  <button type="submit">Submit</button>
+                  <button type="submit">noter</button>
                 </div>
               </form>
 ';
@@ -79,7 +79,13 @@
 
 
         ?>
-        
+    <form id="AjoutPanier" name="panierproduit"  method="post" action="http://rattrapagegit/?url=Panier">
+    <div class="form-row">
+
+    <button type="submit" name="panierproduit" value="<?php echo $tabproduits[0][0]; ?>" class="btn btn-primary">Ajouter au panier</button> 
+
+        </div>
+    </form>        
 
 
         <h2>Section Commentaires</h2>
@@ -150,6 +156,9 @@
 
    </div>
 </form>
+
+
+
 
 
 

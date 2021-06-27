@@ -29,7 +29,10 @@
 
             }
 
-            $panierdel = $objpanier->deleteelementvide($articlepanier[$i][1], $articlepanier[$i][0]);
+            $panierdel = $objpanier->deleteelementvide($articlepanier[$i][1], $articlepanier[$i][0])->fetchAll();
+
+
+
             //supprime tous les éléments du panier où la quantite est a 0 pour éviter de commander des produits sans stock 
             //ou pour supprimer un élément de son panier
         }
@@ -43,13 +46,22 @@
         if (isset($_POST['modifqte'])){
 
             $updatequantite = $objpanier->UpdateQuantite($_POST['produit'],$_POST['modifqte'],$panier[0][0]);
-            header('Location: http://rattrapagegit/?url=Panier');
-
-                       
+            header('Location: http://rattrapagegit/?url=Panier');           
                                     
         }
 
 
+        if (isset($_POST['panierproduit'])){
+
+            echo 'test';
+
+            $insertpanier = $objpanier->InsertElement($panier[0][0],$_POST['panierproduit']);
+            header('Location: http://rattrapagegit/?url=Panier');           
+                                    
+        }
+        
+
+        
 
 
          

@@ -11,6 +11,14 @@ class Panier extends AccesBDDModel {
         return $panier;    
     }
 
+    public function InsertElement($id_panier,$id_produit){
+
+        $sql = "INSERT INTO `concerne` (`ID_panier`,`ID_Produit`, `Quantite` ) VALUES (?,?,1)";
+        $panieradd = $this->executerparam($sql, array($id_panier,$id_produit));
+
+        return $panieradd;
+    }
+
     public function ReadPanierID($id_personne){
 
         $sql = "SELECT * FROM `panier` WHERE ID_CLIENT = ?";
