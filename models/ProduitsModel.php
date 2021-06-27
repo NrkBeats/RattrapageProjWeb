@@ -23,6 +23,15 @@ class Produits extends AccesBDDModel {
 
         return $produits;
     }
+
+    public function readstock($id_produit){
+
+        $sql = 'SELECT Stock_Produit FROM `produit` WHERE ID_Produit = ?';
+        $produits = $this->executerparam($sql, array($id_produit));
+
+        return $produits;
+        
+    }
 }
 
 ?>

@@ -4,7 +4,7 @@
     require_once './models/AdresseModel.php';
     require_once './models/CommentaireModel.php';
     require_once './models/LikeModel.php';
-    require_once './models/PannierModel.php';
+    require_once './models/PanierModel.php';
     require './models/ProduitsModel.php';
     require './models/NoteModel.php';
     require_once './models/PersonneModel.php';
@@ -83,6 +83,12 @@
             require './View/AjouterAdresseView.php';
             require './controllers/AjouterAdresseControler.php';
             
+        }
+
+        elseif($url[0] == 'Panier'){
+
+            require './controllers/PanierController.php';
+            require './View/PanierView.php';
         }
 
 
