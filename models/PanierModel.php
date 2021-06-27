@@ -53,6 +53,18 @@ class Panier extends AccesBDDModel {
 
     }
 
+    public function deletepanier($id_personne){
+
+
+        $sql = 'DELETE FROM concerne WHERE concerne.ID_panier IN (SELECT ID_panier FROM panier WHERE panier.ID_Client = ?);
+        DELETE FROM panier WHERE ID_Client = ?';
+//supprime ce qui se trouve dans la table concerne en plus du panier 
+        $deletepanier = $this->executerparam($sql, array($id_personne));
+
+        return $deletepanier;
+
+    }
+
 
 
 
